@@ -1,6 +1,6 @@
 <?php
 
-use Andres\Rol\Guerrero;
+use Dsw\Rolgame\Guerrero;
 use PHPUnit\Framework\TestCase;
 
 class GuerreroTest extends TestCase

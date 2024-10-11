@@ -1,6 +1,7 @@
 <?php
-use Andres\Rol\Personaje;
-use PHPUnit\Framework\TestCase;
+
+use Dsw\Rolgame\Personaje;
+use PHPUnit\Framework\TestCase; 
 
 class PersonajeTest extends TestCase
 {

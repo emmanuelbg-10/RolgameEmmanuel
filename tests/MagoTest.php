@@ -1,6 +1,6 @@
 <?php
 
-use Andres\Rol\Mago;
+use Dsw\Rolgame\Mago;
 use PHPUnit\Framework\TestCase;
 
 class MagoTest extends TestCase
@@ -12,7 +12,7 @@ class MagoTest extends TestCase
     $this->assertEquals('Gandalf', $mago->nombre);
     $this->assertEquals(12, $mago->nivel);
     $this->assertEquals(80, $mago->puntosDeVida);
-    $this->assertEquals(200, $mago->mana);
+    $this->assertEquals(200, $mago->mana, 'Al mago le falta la propiedad "mana" o no es 200');
   }
 
   // Test para probar el ataque de un Mago
