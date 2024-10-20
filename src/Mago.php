@@ -1,24 +1,23 @@
 <?php
 namespace Dsw\Rolgame;
 
-class Mago extends Personaje
-{
+class Mago extends Personaje{
   public $mana;
-
-  public function __construct($nombre, $nivel, $puntosDeVida, $mana)
+  function __construct($nombre, $nivel, $puntosDeVida, $mana)
   {
     parent::__construct($nombre, $nivel, $puntosDeVida);
     $this->mana = $mana;
   }
-
-  public function atacar()
+  function atacar()
   {
-    return $this->mana / 2;
+    return $this->mana / 2; 
   }
 
-  public function defender($dañoInicial)
+  function defender($daño)
   {
-    $dañoFinal = $dañoInicial - $this->mana / 5;
+    $dañoFinal =  $daño - ($this->mana / 5);
     return $dañoFinal > 0 ? $dañoFinal : 0;
   }
 }
+
+?>

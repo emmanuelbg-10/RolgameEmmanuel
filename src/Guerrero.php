@@ -1,23 +1,23 @@
 <?php
 namespace Dsw\Rolgame;
 
-class Guerrero extends Personaje {
+class Guerrero extends Personaje{
   public $fuerza;
-
-  public function __construct($nombre, $nivel, $puntosDeVida, $fuerza)
+  function __construct($nombre, $nivel, $puntosDeVida, $fuerza)
   {
     parent::__construct($nombre, $nivel, $puntosDeVida);
     $this->fuerza = $fuerza;
   }
-
-  public function atacar()
+  function atacar()
   {
-    return $this->nivel * $this->fuerza;
+    return $this->nivel * $this->fuerza; 
   }
 
-  public function defender($dañoInicial)
+  function defender($daño)
   {
-    $dañoFinal = $dañoInicial - $this->fuerza / 2;
+    $dañoFinal =  $daño - ($this->fuerza / 2);
     return $dañoFinal > 0 ? $dañoFinal : 0;
   }
 }
+
+?>

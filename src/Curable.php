@@ -1,8 +1,10 @@
 <?php
 namespace Dsw\Rolgame;
 
-interface Curable {
+interface Curable{
 
   public function curar();
-  
 }
+
+
+?>
