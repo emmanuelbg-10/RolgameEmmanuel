@@ -1,42 +1,43 @@
 <?php
 namespace Dsw\Rolgame;
 
-class Partida{
-  public $personajes;
-  function __construct(){
+class Partida
+{
+  private $personajes;
+  public function __construct(){
     $this->personajes = [];
   }
 
-  function agregarPersonaje(Personaje $p){
+  public function agregarPersonaje(Personaje $p){
     if($p instanceof Personaje){
       array_push($this->personajes, $p);
     }
   }
-
-  function obtenerPersonajes(){
+  public function obtenerPersonajes(){
     return $this->personajes;
   }
 
-  function eliminarPersonaje(Personaje $p){
-    $posicion = array_search($p, $this->personajes);
-    
-    if($posicion !== false){
-      array_splice($this->personajes, $posicion, 1);
+  public function eliminarPersonaje(Personaje $p){
+    $pos = array_search($p, $this->personajes);
+    if($pos !== false){
+      array_splice($this->personajes, $pos, 1);
     }
   }
 
-  function obtenerPersonajesPorClase($class){
-    return array_filter($this->personajes, function($p) use ($class){
-      return $p instanceof $class;
+  public function obtenerPersonajesPorClase($class){
+    return array_filter($this->personajes, function($personaje) use ($class){
+      return $personaje instanceof $class;
     });
   }
 
-  function eliminarMuertos() : void {
-    $this->personajes = array_filter($this->personajes, function ($p){
-      return $p->puntosDeVida > 0;
+  public function eliminarMuertos(){
+    $this->personajes = array_filter($this->personajes, function($personaje){
+      if($personaje->puntosDeVida > 0){
+        return $personaje;
+      }
+      
     });
   }
-
 }
 
 ?>
